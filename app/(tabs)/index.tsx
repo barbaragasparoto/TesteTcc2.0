@@ -6,6 +6,7 @@ import MyDatePicker from "../componentes/Data/index";
 import Inputlab from "../componentes/Inputlab";
 import DatePicker from "react-native-modern-datepicker";
 
+
 export default function Home() {
   const router = useRouter();
   const [date, setDate] = useState("");
@@ -18,10 +19,10 @@ export default function Home() {
       </View>
 
       <View style={estilos.cardinput}>
-        <Text style={estilos.textoinput}>Agende seu horario</Text>
+        <Text style={estilos.textoinput} onPress={() => router.replace("Login")}>Agende seu horario</Text>
 
         <MyDatePicker />
-        <Inputlab />
+        
         <View style={estilos.relogio}>
           <DatePicker
             style={estilos.relogioPicker}
@@ -29,6 +30,7 @@ export default function Home() {
             minuteInterval={3}
             onTimeChange={(selectedTime) => setTime(selectedTime)}
           />
+          <Inputlab />
         </View>
       </View>
     </ScrollView>
@@ -68,7 +70,7 @@ const estilos = StyleSheet.create({
     color: "#ffffff",
     textAlign: "center",
     fontSize: 17,
-    marginBottom: 13,
+    marginBottom: 1,
   },
   input: {
     width: "100%",

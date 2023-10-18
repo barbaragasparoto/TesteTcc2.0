@@ -15,15 +15,24 @@ export default function Solicitacao({
     <View style={estilos.container}>
       <Logo />
       <View style={estilos.conteudo}>
+      <TextInput
+          style={estilos.input}
+          placeholder="Nome Completo:"
+          placeholderTextColor="white"
+        />
+        <TextInput
+          style={estilos.input}
+          placeholder="Telefone:"
+          placeholderTextColor="white"
+        />
         <TextInput
           style={estilos.input}
           placeholder="Email:"
           placeholderTextColor="white"
         />
         <TextInput
-          secureTextEntry={true}
           style={estilos.input}
-          placeholder="Senha:"
+          placeholder="Cargo:"
           placeholderTextColor="white"
         />
         <Text style={estilos.texto}>{text}</Text>

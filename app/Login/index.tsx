@@ -43,7 +43,7 @@ export default function Login({
           
           onPress={() => router.replace("Solicitacao")}
         >
-          <Text style={estilos.texto}>Solicite seu acesso clicando aqui</Text>
+          <Text style={estilos.texto1}>Solicite seu acesso clicando aqui</Text>
         </Pressable>
 
       </View>
@@ -72,13 +72,20 @@ const estilos = StyleSheet.create({
   texto: {
     color: "white",
     textAlign: "center",
+    
+  },
+
+  texto1: {
+    color: "white",
+    textAlign: "center",
+    marginTop:9
   },
 
   botao: {
     backgroundColor: "#462783",
     borderRadius: 20,
     padding: 10,
-    marginTop: 20,
+    marginTop: 5,
     width: "50%",
   },
   conteudo: {

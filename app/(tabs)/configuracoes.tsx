@@ -9,9 +9,9 @@ export default function Configuracoes() {
     <Card title="" content="" />
     </View> 
 
-        <View style={estilos.list}>
+        
         <List/>
-        </View>
+        
     
 
     </>);

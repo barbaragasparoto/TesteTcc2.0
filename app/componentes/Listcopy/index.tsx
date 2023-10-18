@@ -3,10 +3,10 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 const settingsData = [
     { title: 'Ronaldo Santos', description: '23/11/2023 - LAB 1 - 07:20' },
-    { title: 'Jose Auguso', description: '24/11/2023 - LAB 2 - 08:10' },
+    { title: 'Jose Augusto', description: '24/11/2023 - LAB 2 - 08:10' },
     { title: 'Thais Souza', description: '25/11/2023 - LAB 3 - 09:00' },
     { title: 'Líggia Ostânico', description: '26/11/2023 - LAB 4 - 10:10' },
-    { title: 'Bárbara Figueiredso', description: '27/11/2023 - LAB 5 - 11:00' },
+    { title: 'Bárbara Figueiredo', description: '27/11/2023 - LAB 5 - 11:00' },
 
   ];
   

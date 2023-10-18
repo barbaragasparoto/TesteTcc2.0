@@ -17,5 +17,7 @@ const estilos = StyleSheet.create({
     width: "90%",
     height: (420 / 594) * width,
     left: "8%",
+    marginBottom: 55,
+    marginTop:25
   },
 });
