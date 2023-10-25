@@ -5,6 +5,7 @@ import Card from "../componentes/Card/Card";
 import MyDatePicker from "../componentes/Data/index";
 import Inputlab from "../componentes/Inputlab";
 import DatePicker from "react-native-modern-datepicker";
+import Calendario from "../componentes/Calendario";
 
 
 export default function Home() {
@@ -20,6 +21,8 @@ export default function Home() {
 
       <View style={estilos.cardinput}>
         <Text style={estilos.textoinput} onPress={() => router.replace("Login")}>Agende seu horario</Text>
+
+        <Calendario/>
 
         <MyDatePicker />
         
