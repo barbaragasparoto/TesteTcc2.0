@@ -27,6 +27,7 @@
     "or": "^0.2.0",
     "react": "18.2.0",
     "react-calendar": "^4.6.0",
+    "react-datepicker": "^4.21.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.5",
     "react-native-calendario": "^3.3.2",

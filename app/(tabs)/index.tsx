@@ -1,19 +1,18 @@
 import { useRouter } from "expo-router";
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import Card from "../componentes/Card/Card";
-import MyDatePicker from "../componentes/Data/index";
-import Inputlab from "../componentes/Inputlab";
-import DatePicker from "react-native-modern-datepicker";
 import Calendario from "../componentes/Calendario";
+import Card from "../componentes/Card/Card";
+import Inputlab from "../componentes/Inputlab";
 
 
 export default function Home() {
   const router = useRouter();
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  
 
   return (
+
+    
     <ScrollView>
       <View style={estilos.card}>
         <Card title="" content="" />
@@ -21,20 +20,8 @@ export default function Home() {
 
       <View style={estilos.cardinput}>
         <Text style={estilos.textoinput} onPress={() => router.replace("Login")}>Agende seu horario</Text>
-
         <Calendario/>
-
-        <MyDatePicker />
-        
-        <View style={estilos.relogio}>
-          <DatePicker
-            style={estilos.relogioPicker}
-            mode="time"
-            minuteInterval={3}
-            onTimeChange={(selectedTime) => setTime(selectedTime)}
-          />
-          <Inputlab />
-        </View>
+        <Inputlab />
       </View>
     </ScrollView>
   );
