@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import Aviso from "../componentes/Aviso";
 import Calendario from "../componentes/Calendario";
 import Card from "../componentes/Card/Card";
 import Inputlab from "../componentes/Inputlab";
@@ -22,6 +23,9 @@ export default function Home() {
         <Text style={estilos.textoinput} onPress={() => router.replace("Login")}>Agende seu horario</Text>
         <Calendario/>
         <Inputlab />
+
+        <Aviso/>
+
       </View>
     </ScrollView>
   );
@@ -53,15 +57,16 @@ const estilos = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
-    marginTop: 190,
+    marginTop: 160,
     gap: 16,
   },
   textoinput: {
     color: "#ffffff",
     textAlign: "center",
     fontSize: 17,
-    marginBottom: 1,
+    marginBottom: 0,
   },
+
   input: {
     width: "100%",
     height: 40,

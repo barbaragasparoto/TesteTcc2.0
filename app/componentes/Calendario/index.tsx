@@ -20,10 +20,10 @@ const [selectedDate, setSelectedDate] = useState("");
        onDateChange={handleDateChange}
        minimumDate={minimumDate}
        maximumDate={maximumDate}
-      
        />
   
   );
-}
+};
+
 
 export default Calendario;

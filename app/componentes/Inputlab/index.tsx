@@ -67,7 +67,8 @@ const estilos = StyleSheet.create({
   card: {
     backgroundColor: "#ffffff",
     borderRadius: 10,
-    marginTop: 10,
+    marginTop: -5,
+    padding: 0
   },
 });
 
