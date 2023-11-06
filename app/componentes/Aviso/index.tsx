@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
   },
   buttonOpen: {
     backgroundColor: 'white',
+    marginTop: -15  
   },
   buttonClose: {
     backgroundColor: '#462783',
@@ -77,6 +78,8 @@ const styles = StyleSheet.create({
   textStyle: {
     color: 'black',
     textAlign: 'center',
+    paddingEnd: 50,
+    paddingLeft: 50
 },
   textStyle2: {
     color: '#ffffff',

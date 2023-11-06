@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import DatePicker from 'react-native-modern-datepicker';
-import {addDays, isWeekend, } from "date-fns"
+import {addDays, isWeekend, } from "date-fns";
+import { StyleSheet } from "react-native";
+import { Center } from "@mantine/core";
+import { CSSProperties } from "react";
+
 
  function Calendario() {
 const [selectedDate, setSelectedDate] = useState("");
@@ -15,15 +19,26 @@ const [selectedDate, setSelectedDate] = useState("");
 
   return (
     
-       <DatePicker
+       <DatePicker 
+       options={{selectedTextColor: "#ffff", mainColor: "#462783", daysAnimationDistance:20} }
+       style={estilos.data}
        selected={selectedDate}
        onDateChange={handleDateChange}
        minimumDate={minimumDate}
        maximumDate={maximumDate}
+       
        />
   
   );
 };
 
+const estilos = StyleSheet.create({
+  data: {
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    marginTop: -5,
+
+  },
+});
 
 export default Calendario;

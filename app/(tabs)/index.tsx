@@ -12,21 +12,23 @@ export default function Home() {
   
 
   return (
+    
 
     
+
     <ScrollView>
-      <View style={estilos.card}>
-        <Card title="" content="" />
-      </View>
+
+<View style={estilos.card}>
+    <Card title="" content="" />
+  </View>
 
       <View style={estilos.cardinput}>
         <Text style={estilos.textoinput} onPress={() => router.replace("Login")}>Agende seu horario</Text>
         <Calendario/>
         <Inputlab />
-
         <Aviso/>
-
       </View>
+
     </ScrollView>
   );
 }
@@ -58,6 +60,7 @@ const estilos = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     marginTop: 160,
+    marginBottom: -4,
     gap: 16,
   },
   textoinput: {
