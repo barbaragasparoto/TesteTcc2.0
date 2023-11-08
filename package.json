@@ -17,6 +17,7 @@
     "@shopify/flash-list": "1.4.3",
     "@tabler/icons-react": "^2.39.0",
     "add": "^2.0.6",
+    "axios": "^1.6.1",
     "babel-core": "^6.26.3",
     "dayjs": "^1.11.10",
     "expo": "~49.0.7",
@@ -39,6 +40,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6",
+    "react-query": "^3.39.3",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
