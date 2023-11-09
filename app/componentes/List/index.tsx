@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import useCustomFetch from '../../hooks/useFetch';
 
 
 const settingsData = [
@@ -8,8 +9,11 @@ const settingsData = [
     { title: 'Tema' },
     { title: 'Sobre' },
   ];
+
+  
   
   const List = () => {
+    
     return (
       <View style={styles.container}>
         <FlatList

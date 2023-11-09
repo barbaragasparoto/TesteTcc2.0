@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import useCustomFetch from '../../hooks/useFetch';
 
 const settingsData = [
     { title: 'Ronaldo Santos', description: '23/11/2023 - LAB 1 - 07:20' },
@@ -9,17 +10,21 @@ const settingsData = [
     { title: 'Bárbara Figueiredo', description: '27/11/2023 - LAB 5 - 11:00' },
 
   ];
+
+
   
   const Listcopy = () => {
+    const {data} = useCustomFetch("http://10.68.20.139:8080/agendamentos/todos")
+
     return (
       <View style={styles.container}>
         <FlatList
-          data={settingsData}
+          data={data}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <View style={styles.card}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.description}>{item.description}</Text>
+              <Text style={styles.title}>{item.cadastro.nomeusuario}</Text>
+              <Text style={styles.description}>{item.data} {item.horarios.horario} {item.laboratorios.nomeLab}</Text>
             </View>
           )}
         />
