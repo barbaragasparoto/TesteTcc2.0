@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    marginTop: 20
   },
   backgroundModal: {
     backgroundColor: "rgba(0,0,0,0.5)",
-
-    height: '100%',
+    height: '105%',
     width: '100%'
   },
   button: {

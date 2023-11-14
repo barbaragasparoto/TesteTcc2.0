@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { SearchBar } from '@rneui/themed';
+import { SearchBar, Input } from '@rneui/themed';
 import { View, FlatList, StyleSheet, Text } from 'react-native';
 
 const settingsData = [
-  { title: 'Ronaldo Santos', description: '23/11/2023 - LAB 1 - 07:20' },
-  { title: 'Jose Augusto', description: '24/11/2023 - LAB 2 - 08:10' },
-  { title: 'Thais Souza', description: '25/11/2023 - LAB 3 - 09:00' },
-  { title: 'Líggia Ostânico', description: '26/11/2023 - LAB 4 - 10:10' },
-  { title: 'Bárbara Figueiredo', description: '27/11/2023 - LAB 5 - 11:00' },
+  { title: 'Rogério Furlan', description: '01/02/2024 - LAB 5 - 13:30' },
+  { title: 'Ronaldo Santos', description: '10/02/2024 - LAB 1 - 07:20' },
+  { title: 'Jose Augusto', description: '11/02/2024 - LAB 2 - 08:10' },
+  { title: 'Thais Souza', description: '12/02/2024 - LAB 3 - 09:00' },
+  { title: 'Líggia Ostânico', description: '13/02/2024 - LAB 4 - 10:10' },
+  { title: 'Bárbara Figueiredo', description: '14/02/2024 - LAB 5 - 11:00' },
+  
 ];
 
 const Listcopy = ({ searchTerm }) => {
@@ -39,13 +41,16 @@ const SwitchComponent = () => {
 
   return (
     <View style={styles.container}>
-      <SearchBar
+      
+      <Input
         placeholder="Pesquisar..."
         onChangeText={updateSearch}
         value={search}
+        leftIcon={{ type: 'font-awesome', name: 'search', color: '#462783' }}
+        inputContainerStyle={styles.pesquisa}
         style={styles.pesquisa}
         inputStyle={styles.input}
-/>
+      />
       <Listcopy searchTerm={search} />
     </View>
   );
@@ -55,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    marginTop: 37,
+    marginTop: 29,
   },
   card: {
     backgroundColor: '#462783',
@@ -68,13 +73,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   pesquisa:{
-    borderRadius:10,
-    backgroundColor: '#fff',
-    borderBottomWidth: 0, 
-    borderTopWidth: 0, 
+  
   },
-  input:{
-    color: '#000', 
+  input: {
+    color: '#000',
   },
   title: {
     fontSize: 20,
