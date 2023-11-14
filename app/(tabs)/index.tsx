@@ -23,7 +23,7 @@ export default function Home() {
   </View>
 
       <View style={estilos.cardinput}>
-        <Text style={estilos.textoinput} onPress={() => router.replace("Login")}>Agende seu horario</Text>
+        <Text style={estilos.textoinput} onPress={() => router.replace("(auth)")}>Agende seu horario</Text>
         <Calendario/>
         <Inputlab />
         <Aviso/>

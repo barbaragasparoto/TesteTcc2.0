@@ -1,36 +1,26 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Text, Pressable } from "react-native";
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import Logo from "../componentes/Logo";
 import { useRouter } from "expo-router";
 
-export default function Login({
-  navigation,
-}: {
-  navigation: NavigationProp<ParamListBase>;
-}) {
+export default function Login() {
   const [text] = useState("");
   const router = useRouter();
   return (
     <View style={estilos.container}>
-      
       <Logo />
-
       <View style={estilos.conteudo}>
-        
         <TextInput
           style={estilos.input}
           placeholder="Email:"
           placeholderTextColor="white"
         />
-
         <TextInput
           secureTextEntry={true}
           style={estilos.input}
           placeholder="Senha:"
           placeholderTextColor="white"
         />
-
         <Text style={estilos.texto}>{text}</Text>
         <Pressable
           style={estilos.botao}
@@ -38,14 +28,11 @@ export default function Login({
         >
           <Text style={estilos.texto}>Entrar</Text>
         </Pressable>
-
-        <Pressable
-          
-          onPress={() => router.replace("Solicitacao")}
-        >
-          <Text style={estilos.texto1}>Solicite seu acesso clicando aqui</Text>
+        <Pressable onPress={() => router.replace("Solicitacao")}>
+          <Text style={estilos.texto1} background-color="blue">
+            Cadastre-se
+          </Text>
         </Pressable>
-
       </View>
     </View>
   );
@@ -72,13 +59,13 @@ const estilos = StyleSheet.create({
   texto: {
     color: "white",
     textAlign: "center",
-    
   },
 
   texto1: {
-    color: "white",
+    color: "#2395FF",
     textAlign: "center",
-    marginTop:9
+    marginTop: 9,
+    textDecorationLine: "underline",
   },
 
   botao: {

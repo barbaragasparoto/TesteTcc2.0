@@ -20,13 +20,13 @@ const [time, setTime] = useState("");
   const filterWeekends = (date) => {return !isWeekendDay(date);}
   const [date, useDate] = useState();
 
-  const {data} = useCustomFetch("http://10.68.20.139:8080/horario/todos")
+  /* const {data} = useCustomFetch("http://10.68.20.139:8080/horario/todos")
 
   const {mutate: horariosPost} = usePostMutation("http://10.68.20.139:8080/horario")
-
-  const onSubmit = (valor: any) => {
+ */
+ /*  const onSubmit = (valor: any) => {
     horariosPost(valor)
-  }
+  } */
 
   return (
     

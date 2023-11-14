@@ -1,6 +1,10 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import TabBarIcon from '../componentes/TabBarIcon/index';
+
+const Tab = createBottomTabNavigator();
 
 export default function TabLayout() {
   return (
@@ -8,9 +12,11 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          tabBarActiveTintColor: "#462783",
+          tabBarInactiveTintColor: "#ccc",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={size} />
+            <TabBarIcon name="home-outline" color={color} />
           ),
         }}
       />
@@ -18,9 +24,11 @@ export default function TabLayout() {
       <Tabs.Screen
         name="list"
         options={{
+          tabBarActiveTintColor: "#462783",
+          tabBarInactiveTintColor: "#ccc",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="list-outline" size={size} color={color} />
+            <TabBarIcon name="list-outline" color={color} />
           ),
         }}
       />
@@ -28,9 +36,11 @@ export default function TabLayout() {
       <Tabs.Screen
         name="configuracoes"
         options={{
+          tabBarActiveTintColor: "#462783",
+          tabBarInactiveTintColor: "#ccc",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-outline" color={color} size={size} />
+            <TabBarIcon name="settings-outline" color={color} />
           ),
         }}
       />

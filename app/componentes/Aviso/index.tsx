@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import React, { useState } from "react";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
 const Aviso = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -10,25 +10,30 @@ const Aviso = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
+          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
-        }}>
+        }}
+      >
         <View style={styles.centeredView}>
-        <View style={styles.backgroundModal}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Seu agendamento foi concluído com sucesso!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle2}>OK</Text>
-            </Pressable>
-          </View>
+          <View style={styles.backgroundModal}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>
+                Seu agendamento foi concluído com sucesso!
+              </Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle2}>OK</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
+        onPress={() => setModalVisible(true)}
+      >
         <Text style={styles.textStyle}>Agendar</Text>
       </Pressable>
     </View>
@@ -38,17 +43,17 @@ const Aviso = () => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
-    shadowColor: '#462783',
+    alignItems: "center",
+    shadowColor: "#462783",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -56,12 +61,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    marginTop: 20
+    marginTop: 20,
   },
   backgroundModal: {
     backgroundColor: "rgba(0,0,0,0.5)",
-    height: '105%',
-    width: '100%'
+    height: "105%",
+    width: "100%",
   },
   button: {
     borderRadius: 20,
@@ -69,25 +74,25 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: 'white',
-    marginTop: -15  
+    backgroundColor: "white",
+    marginTop: -15,
   },
   buttonClose: {
-    backgroundColor: '#462783',
+    backgroundColor: "#462783",
   },
   textStyle: {
-    color: 'black',
-    textAlign: 'center',
+    color: "black",
+    textAlign: "center",
     paddingEnd: 50,
-    paddingLeft: 50
-},
+    paddingLeft: 50,
+  },
   textStyle2: {
-    color: '#ffffff',
-    textAlign: 'center',
+    color: "#ffffff",
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 15,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

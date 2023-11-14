@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Text, Pressable } from "react-native";
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import Logo from "../componentes/Logo";
 import { useRouter } from "expo-router";
 
-export default function Solicitacao({
-  navigation,
-}: {
-  navigation: NavigationProp<ParamListBase>;
-}) {
+export default function Solicitacao() {
   const [text] = useState("");
   const router = useRouter();
   return (
     <View style={estilos.container}>
       <Logo />
       <View style={estilos.conteudo}>
-      <TextInput
+        <TextInput
           style={estilos.input}
           placeholder="Nome Completo:"
           placeholderTextColor="white"
@@ -38,9 +33,9 @@ export default function Solicitacao({
         <Text style={estilos.texto}>{text}</Text>
         <Pressable
           style={estilos.botao}
-          onPress={() => router.replace("Login")}
+          onPress={() => router.replace("(auth)")}
         >
-          <Text style={estilos.texto}>Solicitar</Text>
+          <Text style={estilos.texto}>Cadastrar</Text>
         </Pressable>
       </View>
     </View>
