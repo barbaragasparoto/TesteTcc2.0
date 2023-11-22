@@ -41,7 +41,7 @@ export default function Login() {
           errorMessage={error.email}
           value={email}
           onChangeText={setEmail}
-          style={estilos.input}
+          style={estilos.input2}
           placeholder="Email:"
           placeholderTextColor="white"
         />
@@ -51,7 +51,7 @@ export default function Login() {
           value={senha}
           onChangeText={setSenha}
           secureTextEntry={true}
-          style={estilos.input}
+          style={estilos.input2}
           placeholder="Senha:"
           placeholderTextColor="white"
         />
@@ -78,6 +78,11 @@ const estilos = StyleSheet.create({
   container: {
     backgroundColor: "black",
     height: "100%",
+  },
+  
+
+  input2: {
+    color: "white",
   },
 
   input: {
