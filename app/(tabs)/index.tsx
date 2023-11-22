@@ -5,6 +5,9 @@ import Aviso from "../componentes/Aviso";
 import Calendario from "../componentes/Calendario";
 import Card from "../componentes/Card/Card";
 import Inputlab from "../componentes/Inputlab";
+import App from "../componentes/Select";
+
+
 
 
 export default function Home() {
@@ -18,22 +21,29 @@ export default function Home() {
 
     <ScrollView>
 
+
 <View style={estilos.card}>
     <Card title="" content="" />
   </View>
 
       <View style={estilos.cardinput}>
-        <Text style={estilos.textoinput} onPress={() => router.replace("(auth)")}>Agende seu horario</Text>
+        <Text style={estilos.textoinput} onPress={() => router.replace("(auth)")}>Agende seu horário</Text>
         <Calendario/>
-        <Inputlab />
+        <App/>
+
         <Aviso/>
+
       </View>
+
 
     </ScrollView>
   );
 }
 
 const estilos = StyleSheet.create({
+
+
+
   relogioPicker: {
     borderRadius: 8,
   },
@@ -44,7 +54,7 @@ const estilos = StyleSheet.create({
   card: {
     padding: 15,
     position: "absolute",
-    top: 0,
+    top: 20,
     left: 0,
     right: 0,
     marginBottom: 100,
@@ -59,7 +69,7 @@ const estilos = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
-    marginTop: 160,
+    marginTop: 180,
     marginBottom: -4,
     gap: 16,
   },

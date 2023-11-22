@@ -17,14 +17,10 @@ export default function Solicitacao() {
         />
         <TextInput
           style={estilos.input}
-          placeholder="Telefone:"
+          placeholder="Senha:"
           placeholderTextColor="white"
         />
-        <TextInput
-          style={estilos.input}
-          placeholder="Email:"
-          placeholderTextColor="white"
-        />
+        
         <TextInput
           style={estilos.input}
           placeholder="Cargo:"
@@ -69,7 +65,7 @@ const estilos = StyleSheet.create({
     backgroundColor: "#462783",
     borderRadius: 20,
     padding: 10,
-    marginTop: 20,
+    marginTop: 5,
     width: "50%",
   },
   conteudo: {

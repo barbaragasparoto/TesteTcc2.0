@@ -32,18 +32,6 @@ export default function TabLayout() {
           ),
         }}
       />
-
-      <Tabs.Screen
-        name="configuracoes"
-        options={{
-          tabBarActiveTintColor: "#462783",
-          tabBarInactiveTintColor: "#ccc",
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <TabBarIcon name="settings-outline" color={color} />
-          ),
-        }}
-      />
     </Tabs>
   );
 }
