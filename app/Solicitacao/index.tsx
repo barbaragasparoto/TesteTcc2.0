@@ -1,124 +1,205 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, Text, Pressable } from "react-native";
-import Logo from "../componentes/Logo";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { Picker } from "@react-native-picker/picker";
 import { useRouter } from "expo-router";
-import { Input } from "@rneui/themed";
-import App2 from "../componentes/SelectProfessor";
+import Logo from "../componentes/Logo";
 
-export default function Solicitacao() {
-  const [text] = useState("");
-  const router = useRouter();
+const Header = () => (
+  <Logo/>
+);
+
+function UserRegistration() { 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [cargo, setCargo] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
 
-  
-  const validateFields = () => {
-    const errors = { email, senha, cargo };
+  const router = useRouter();
 
-    if (!email) {
-      errors.email = "O campo e-mail é obrigatório.";
-    } else {
-      errors.email = "";
-    }
-
-    const regexPassword =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-    if (!senha) {
-      errors.senha = "A senha é obrigatória.";
-    } else {
-      errors.senha = "";
-    }
-
-    if (!cargo) {
-      errors.cargo = "Cargo é um campo obrigatório.";
-    } else {
-      errors.cargo = "";
-    }
-
-    return errors;
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
   };
 
-  const error = validateFields();
+  const toggleConfirmPasswordVisibility = () => {
+    setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
+  };
+
+  const handleRegistration = () => {
+    if (
+      name === "" ||
+      email === "" ||
+      password === "" ||
+      confirmPassword === "" ||
+      selectedCity === ""
+    ) {
+      Alert.alert("Aviso", "Todos os campos são obrigatórios!");
+      return;
+    }
+    // aqui ele ve se a senha tem 6 caracteres
+    if (password.length < 6) {
+      Alert.alert("Aviso", "A senha deve ter pelo menos 6 caracteres!");
+      return;
+    }
+
+    // aqui ele ve se o confirmar senha esta igual a senha
+    if (password !== confirmPassword) {
+      Alert.alert("Aviso", "As senhas não coincidem!");
+      return;
+    }
+    console.log("Cidade selecionada:", selectedCity);
+
+    setName("");
+    setEmail("");
+    setSelectedCity("");
+    setPassword("");
+    setConfirmPassword("");
+
+    Alert.alert("Sucesso", "Os dados foram salvos com sucesso!");
+
+    router.replace("(auth)");
+  };
 
   return (
-    <View style={estilos.container}>
-      <Logo />
-
-
-      <View style={estilos.conteudo}>
-
-        <Input
-          style={estilos.input}
-          errorMessage={error.email}
+    <View style={styles.container}>
+      <Header />
+      <View >
+        <TextInput 
+          placeholder="Nome de Usuário"
+          value={name}
+          onChangeText={(text) => setName(text)}
+          style={[styles.input,  name !== "" && styles.validInput]}
+        />
+        <TextInput
+          placeholder="Email"
           value={email}
-          onChangeText={setEmail}
-          placeholder="Email:"
-          placeholderTextColor="black"
+          onChangeText={(text) => setEmail(text)}
+          style={[styles.input, styles.passwordInput1, email !== "" && styles.validInput]}
         />
 
-        <Input
-          style={estilos.input}
-          errorMessage={error.senha}
-          value={senha}
-          onChangeText={setSenha}
-          placeholder="Senha:"
-          placeholderTextColor="black"
-        />
-        
-        
-
+        <View style={styles.passwordContainer}>
+          <TextInput
+            placeholder="Senha"
+            secureTextEntry={!isPasswordVisible}
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            style={[styles.passwordInput, password !== "" && styles.validInput]}
+          />
+          <TouchableOpacity
+            onPress={togglePasswordVisibility}
+            style={styles.eyeIcon}
+          >
+            <FontAwesome5
+              name={isPasswordVisible ? "eye-slash" : "eye"}
+              size={20}
+              color="#888"
+            />
+          </TouchableOpacity>
         </View>
-
-
-
-        <View style={estilos.cargo}>
-        <App2/>
+        <View style={styles.passwordContainer}>
+          <TextInput
+            placeholder="Confirmar Senha"
+            secureTextEntry={!isConfirmPasswordVisible}
+            value={confirmPassword}
+            onChangeText={(text) => setConfirmPassword(text)}
+            style={[
+              styles.passwordInput,
+              confirmPassword !== "" && styles.validInput,
+            ]}
+          />
+          <TouchableOpacity
+            onPress={toggleConfirmPasswordVisibility}
+            style={styles.eyeIcon}
+          >
+            <FontAwesome5
+              name={isConfirmPasswordVisible ? "eye-slash" : "eye"}
+              size={20}
+              color="#888"
+            />
+          </TouchableOpacity>
         </View>
-
-        
-      <View style={estilos.conteudo} >
-      <Pressable
-          style={estilos.botao}
-          onPress={() => router.replace("(auth)")}
+        <Picker 
+          selectedValue={selectedCity}
+          onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
+          style={[styles.input, selectedCity !== "" && styles.validInput]}
         >
-          <Text style={estilos.texto}>Cadastrar</Text>
-        </Pressable>
+          <Picker.Item label="Selecione o seu cargo" value="" />
+          <Picker.Item label="Coordenador" value="id 1" />
+          <Picker.Item label="Professor" value="id 2" />
+        </Picker>
       </View>
-     
+      <TouchableOpacity onPress={(handleRegistration)} style={styles.button}>
+        <Text style={styles.buttonText}>Salvar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
-const estilos = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "white",
-    height: "100%",
   },
-
+  card: {
+    borderWidth: 1,
+  },
+ 
   input: {
-    color: "black",
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 10,
+    paddingHorizontal: 70,
+    marginBottom: 10,
+  },
+  validInput: {
+    borderColor: "green",
+  },
+  passwordContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 10,
+    marginBottom: 10,
   },
 
-  texto: {
-    color: "white",
-    textAlign: "center",
+  passwordInput1: {
+    paddingHorizontal: 10,
   },
-cargo:{
-marginTop: 20
-},
-  botao: {
+  passwordInput2: {
+    paddingHorizontal: 10,
+  },
+  passwordInput: {
+    flex:1,
+    paddingHorizontal: 10,
+  },
+  eyeIcon: {
+    padding: 10,
+  },
+  button: {
     backgroundColor: "#462783",
     borderRadius: 20,
     padding: 10,
-    marginTop: 50,
+    marginTop: 10,
     width: "50%",
-    
   },
-  conteudo: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
+  buttonText: {
+    color: "white",
+    textAlign: "center",
   },
 });
+
+export default UserRegistration;
