@@ -13,7 +13,7 @@ import { useRouter } from "expo-router";
 import Logo from "../componentes/Logo";
 
 const Header = () => (
-  <Logo/>
+  <Logo />
 );
 
 function UserRegistration() { 
@@ -39,7 +39,6 @@ function UserRegistration() {
   const handleRegistration = () => {
     if (
       name === "" ||
-      email === "" ||
       password === "" ||
       confirmPassword === "" ||
       selectedCity === ""
@@ -61,7 +60,6 @@ function UserRegistration() {
     console.log("Cidade selecionada:", selectedCity);
 
     setName("");
-    setEmail("");
     setSelectedCity("");
     setPassword("");
     setConfirmPassword("");
@@ -75,17 +73,12 @@ function UserRegistration() {
     <View style={styles.container}>
       <Header />
       <View >
-        <TextInput 
-          placeholder="Nome de Usuário"
+       
+        <TextInput
+          placeholder="Nome de usuário"
           value={name}
           onChangeText={(text) => setName(text)}
-          style={[styles.input,  name !== "" && styles.validInput]}
-        />
-        <TextInput
-          placeholder="Email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          style={[styles.input, styles.passwordInput1, email !== "" && styles.validInput]}
+          style={[styles.input, styles.passwordInput1, name !== "" && styles.validInput]}
         />
 
         <View style={styles.passwordContainer}>
@@ -154,7 +147,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   card: {
-    borderWidth: 1,
+    borderWidth: 10,
   },
  
   input: {
@@ -162,7 +155,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 10,
-    paddingHorizontal: 70,
+    paddingHorizontal: 170,
     marginBottom: 10,
   },
   validInput: {
