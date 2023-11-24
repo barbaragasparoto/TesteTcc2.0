@@ -186,18 +186,20 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: "white",
     height: 40,
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: "#ccc",
     borderRadius: 10,
     paddingHorizontal: 10,
   },
   eyeIcon: {
-    padding: 1,
+    padding: 0,
     backgroundColor: "white",
     borderColor: "#ccc",
     borderRadius: 10,
     marginBottom: 10,
-marginTop: 10  },
+marginTop: 10,
+marginRight: 10  
+},
   button: {
     backgroundColor: "#462783",
     borderRadius: 20,
